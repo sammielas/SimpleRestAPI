@@ -2,15 +2,17 @@ const express = require("express");
 const router = express.Router();
 
 //getting all
-router.get("/", (req, res) => {});
+router.get("/", (req, res) => {
+  res.send("Hello World");
+});
 
 //Getting one
 router.get("/:id", (req, res) => {
-  req.params.id;
+  res.send(req.params.id);
 });
 
 //Creating One
-router.get("/", (req, res) => {});
+router.post("/", (req, res) => {});
 //Updating One
 router.patch("/:id", (req, res) => {});
 //Deleting One
