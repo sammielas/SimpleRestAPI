@@ -4,7 +4,11 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 const PORT = process.env.PORT || 3000;
 
-mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true });
+try {
+  await mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true });
+} catch (error) {
+  handleError(error);
+}
 const db = mongoose.connection;
 db.on("error", (error) => console.error(error));
 db.once("open", () => console.log("Connected to Database"));
