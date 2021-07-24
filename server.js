@@ -14,4 +14,8 @@ app.use(express.json());
 const subscribersRouter = require("./routes/subscribers");
 app.use("/subscribers", subscribersRouter);
 
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
+
 app.listen(PORT, () => console.log("server running"));
