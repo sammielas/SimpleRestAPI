@@ -4,7 +4,12 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 const PORT = process.env.PORT || 3000;
 
-mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true });
+mongoose.connect(process.env.DATABASE_URL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+  useFindAndModify: true,
+});
 
 const db = mongoose.connection;
 db.on("error", (error) => console.error(error));

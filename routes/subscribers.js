@@ -6,7 +6,7 @@ const Subscriber = require("../models/subscriber");
 router.get("/", async (req, res) => {
   try {
     const subscribers = await Subscriber.find();
-    res.send("WELCOME TO MY SUBSCRIBER'S CHANNEL");
+    // res.send("WELCOME TO MY SUBSCRIBER'S CHANNEL");
     res.json(subscribers);
   } catch (err) {
     res.status(500).json({ message: err.message });
